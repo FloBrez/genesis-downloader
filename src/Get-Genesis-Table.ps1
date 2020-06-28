@@ -5,7 +5,7 @@ $file = ".\$($table).csv"
 if ($cred -eq $null) {
     $cred = ".\genesis-credentials.json" 
 }
-$cred = Get-Content .\genesis-credentials.json | ConvertFrom-Json
+$cred = Get-Content $cred | ConvertFrom-Json
 $baseurl="https://www-genesis.destatis.de/genesisWS/rest/2020"
 $service="data"
 $method="tablefile"
