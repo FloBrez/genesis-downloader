@@ -11,6 +11,7 @@
 
 #Requires -Modules @{ModuleName='AWS.Tools.Common';ModuleVersion='4.0.6.0'}
 #Requires -Modules @{ModuleName='AWS.Tools.Lambda';ModuleVersion='4.0.6.0'}
+<<<<<<< HEAD
 #Requires -Modules @{ModuleName='AWS.Tools.S3';ModuleVersion='4.0.6.0'}
 
 $format=$env:format
@@ -20,9 +21,23 @@ $password=$env:password
 
 # request
 $file="$($table).csv" 
+=======
+
+
+$username="DEH4E2B8WT"
+$password="WdyKa6ZYyVSp89Y"
+$format="ffcsv"
+$table="12411-0001"
+
+# request
+>>>>>>> e5a048037d3aa1acaf8cd0915016350e867b89eb
 $baseurl="https://www-genesis.destatis.de/genesisWS/rest/2020"
 $service="data"
 $method="tablefile"
 $url="$($baseurl)/$($service)/$($method)?username=$username&password=$password&name=$table&format=$format"
+<<<<<<< HEAD
 $response=Invoke-RestMethod -Method 'Get' -Uri $url
 Write-S3Object -BucketName "data-destatis" -Key $file -Content $response
+=======
+Invoke-RestMethod -Method 'Get' -Uri $url -OutFile $file
+>>>>>>> e5a048037d3aa1acaf8cd0915016350e867b89eb
